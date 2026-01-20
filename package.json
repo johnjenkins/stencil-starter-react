@@ -1,0 +1,26 @@
+{
+  "name": "stencil-react-repro",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@9.15.0",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "start": "pnpm run build:stencil && pnpm run build:react-wrapper && concurrently -n stencil,react-wrapper,react-app,reload -c blue,green,magenta,yellow \"pnpm run start:stencil\" \"pnpm run start:react-wrapper\" \"pnpm run start:react-app:wait\" \"pnpm run start:reload-trigger\"",
+    "start:stencil": "pnpm --filter @example/stencil-lib run start",
+    "start:react-wrapper": "pnpm --filter @example/stencil-lib-react run start",
+    "start:react-app": "pnpm --filter react-app run start",
+    "start:react-app:wait": "wait-on packages/stencil-lib-react/dist/index.js && pnpm run start:react-app",
+    "start:reload-trigger": "chokidar \"packages/stencil-lib/dist/**/*\" \"packages/stencil-lib-react/dist/**/*\" -c \"touch packages/react-app/src/main.tsx\"",
+    "build": "pnpm run build:stencil && pnpm run build:react-wrapper && pnpm run build:react-app",
+    "build:stencil": "pnpm --filter @example/stencil-lib run build",
+    "build:react-wrapper": "pnpm --filter @example/stencil-lib-react run build",
+    "build:react-app": "pnpm --filter react-app run build"
+  },
+  "devDependencies": {
+    "chokidar-cli": "^3.0.0",
+    "concurrently": "^9.0.0",
+    "wait-on": "^8.0.0"
+  }
+}
