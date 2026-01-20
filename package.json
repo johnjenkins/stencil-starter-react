@@ -12,7 +12,7 @@
     "start:react-wrapper": "pnpm --filter @example/stencil-lib-react run start",
     "start:react-app": "pnpm --filter react-app run start",
     "start:react-app:wait": "wait-on packages/stencil-lib-react/dist/index.js && pnpm run start:react-app",
-    "start:reload-trigger": "chokidar \"packages/stencil-lib/dist/**/*\" \"packages/stencil-lib-react/dist/**/*\" -c \"touch packages/react-app/src/main.tsx\"",
+    "start:reload-trigger": "SHELL=/bin/sh chokidar \"packages/stencil-lib/dist/**/*\" \"packages/stencil-lib-react/dist/**/*\" -c \"touch packages/react-app/src/main.tsx\"",
     "build": "pnpm run build:stencil && pnpm run build:react-wrapper && pnpm run build:react-app",
     "build:stencil": "pnpm --filter @example/stencil-lib run build",
     "build:react-wrapper": "pnpm --filter @example/stencil-lib-react run build",
