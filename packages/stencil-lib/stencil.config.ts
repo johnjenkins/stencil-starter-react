@@ -5,9 +5,11 @@ export const config: Config = {
   namespace: 'stencil-lib',
   hashFileNames: false,
   sourceMap: true,
+  minifyJs: false,
   outputTargets: [
     reactOutputTarget({
       outDir: '../stencil-lib-react/src/components',
+      esModules: true,
     }),
     {
       type: 'dist',

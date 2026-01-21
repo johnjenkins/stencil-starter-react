@@ -14,6 +14,10 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs.js"
     },
+    "./components": {
+      "types": "./dist/components/index.d.ts",
+      "import": "./dist/components/index.js"
+    },
     "./dist/components/*": {
       "import": "./dist/components/*"
     },
@@ -30,7 +34,8 @@
   "scripts": {
     "build": "stencil build --prod",
     "start": "stencil build --watch --prod",
-    "generate": "stencil generate"
+    "generate": "stencil generate",
+    "dev": "stencil build --dev --watch"
   },
   "devDependencies": {
     "@stencil/core": "^4.22.0",

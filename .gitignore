@@ -3,3 +3,4 @@ dist
 loader
 .DS_Store
 *.log
+.stencil

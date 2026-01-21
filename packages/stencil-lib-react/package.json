@@ -16,8 +16,8 @@
     "dist/"
   ],
   "scripts": {
-    "build": "tsc --emitDeclarationOnly && vite build",
-    "start": "tsc --emitDeclarationOnly && vite build --watch"
+    "build": "tsc",
+    "start": "tsc --watch"
   },
   "dependencies": {
     "@example/stencil-lib": "workspace:*",
