@@ -1,2 +1,2 @@
-export * from './components/components';
+// Make core library utilities available
 export * from '@example/stencil-lib/components';

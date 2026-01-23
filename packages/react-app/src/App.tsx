@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ExampleInput } from '@example/stencil-lib-react';
+import ExampleInput from '@example/stencil-lib-react/ExampleInput';
 
 function App() {
   const [basicValue, setBasicValue] = useState('');
